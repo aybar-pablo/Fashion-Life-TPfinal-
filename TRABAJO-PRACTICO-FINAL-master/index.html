@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion&life</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqueryvalidation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<header>
+    <img src="IMG/FOTOWEB.jpg" class="rounded mx-auto d-block" alt="logo">
+    
+    
+
+    <div class="nav-tabs-dark bg-dark">
+    <nav>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Inicio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Comprar</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contactanos</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="quienessomos-tab" data-bs-toggle="tab" data-bs-target="#quienessomos-tab-pane" type="button" role="tab" aria-controls="quienessomos-tab-pane" aria-selected="false">Quienes Somos</button>
+              </li>
+            
+          </ul>
+        </nav>
+    </div>    
+</header>
+<body>
+
+    <main class="container">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="IMG/modelo1.jpg" alt="modelo">
+
+                </div>
+
+                <div class="col-md-6 my-auto">
+                    <h1>Bienvenido a Fashion&Life</h1>
+                    <p>Somos una empresa que se dedica a la moda y el modelaje junto con la venta de productos y accesorios.En nuestro sitio web encontras una variedad de productos y accesorios fascinante</p>
+
+                </div>
+                
+            </div>
+            <div class="row flex-row-reverse">
+                <div class="col-md-6">
+                    <img src="IMG/modelo2.jpg" alt="modelo">
+
+                </div>
+
+                <div class="col-md-6 my-auto">
+                    <h1>No te quedes atras en lo ultimo  de la moda</h1>
+                    <p>En nuestra tienda podras encontrar lo que siempre quisiste vestir, gracias a nuestras modistas podras encontrar eso que tanto te encantaria lucir</p>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="IMG/modelo3.jpg" alt="modelo">
+
+                </div>
+
+                <div class="col-md-6 my-auto">
+                    <h1>Casual Pero sin perder la elegancia</h1>
+                    <p>Tambien podras encontrar lo ideal para estar comodo pero sin perder absolutamente nada de estilo</p>
+
+                </div>
+                
+            </div>
+            <div class="row flex-row-reverse">
+                <div class="col-md-6">
+                    <img src="IMG/modelo4.jpg" alt="modelo">
+
+                </div>
+
+                <div class="col-md-6 my-auto">
+                    <h1>Entre mas elegancia mejor</h1>
+                    <p>Tambien en nuestro repertorio podras encontrar las vestimentas mas elegantes y finas</p>
+
+                </div>
+                
+            </div>
+            
+
+
+
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+            <h1>Formulario de Pedidos</h1>
+            <form id="formularioDeCompra">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad"><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+                <input type="submit" onclick="generarPDF()" value="Enviar">
+            </form>
+
+
+           
+             <script>
+                function generarPDF() {
+                    
+                    var nombre = document.getElementById('nombre').value;
+                    var cantidad = document.getElementById('cantidad').value;
+                    var email = document.getElementById('email').value;
+              
+                    
+                    var doc = new jsPDF();
+              
+                    
+                    doc.text(20, 20, 'Formulario de Compra');
+                    doc.text(20, 30, 'Nombre: ' + nombre);
+                    doc.text(20, 40, 'cantidad: ' + cantidad);
+                    doc.text(20, 50, 'Email: ' + email);
+              
+                
+                    doc.save('formulario.pdf'); }
+            </script>
+        
+        
+            
+
+
+        </div>
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+            <h1>Formulario de contacto</h1>
+
+            <form id="formularioDeContacto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+
+
+
+
+              
+            <!--<form id="formularioDeContacto">
+                
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" name="nombre">
+                
+            
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email">
+            
+                
+                  <label for="mensaje">Mensaje:</label>
+                  <textarea type="text" id="mensaje" name="mensaje"></textarea>
+            
+                  <input type="submit" value="Enviar">
+            </form>-->
+
+
+
+        </div>
+        <div class="tab-pane fade" id="quienessomos-tab-pane" role="tabpanel" aria-labelledby="quienessomos-tab" tabindex="0">
+            <h2>Deslumbrar a las personas con nuestro estilo es lo que mas deseamos</h2>
+
+            <img src="IMG/th.jpg">
+
+            <p>Somos una empresa dedicada a las vestimentas tanto casuales como para eventos de gran categoria.Gracias a nuestra directora de moda siempre estamos actulizados. </p>
+            <p>
+                Los encargados de llevar el glamur a todas partes son:<br>
+
+                Paulina Ramirez : Directora de moda.<br>
+
+                Pablo Ricardo Aybar : Fotogrado frofecional de la empresa.<br>
+
+                Matias Ernesto Medina : Director de propaganda y relaciones publicas.<br>
+                
+
+            </p>
+          
+        </div>
+    
+   
+    </main>
+    
+    <!--JavaScript y dependencias-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    
+    </body>
+
+</html>
+
+
+
+
+
